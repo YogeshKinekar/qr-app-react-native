@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import React from 'react';
 
-const Home = () => {
-  return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  )
-}
+import { useNavigation } from '@react-navigation/native';
 
-export default Home;
+export default function Home() {
+    const navigation = useNavigation();
+
+    return(
+        <View style={StyleSheet.container} > 
+            <Button title='Scan' onPress={() => navigation.navigate('Scanner')} />
+        </View>
+    )
+}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'  
+  }
+})
